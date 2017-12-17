@@ -11,7 +11,7 @@ export class CanActivateGuard implements CanActivate {
     console.log(state.url)
     console.log('present allowence:'+this.isLogin().toString());
     if(!this.isLogin()){console.log('你需要登陆后才能查看');
-        this.router.navigate(['/login']);
+        this.router.navigate(['login','b']);
     }
     return this.isLogin();
   }
