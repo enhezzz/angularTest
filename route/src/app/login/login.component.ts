@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginServiceService} from "../login-service.service";
-
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -10,13 +10,18 @@ import {LoginServiceService} from "../login-service.service";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoginServiceService) { }
+  constructor(private loginService: LoginServiceService,private router: Router) { }
 
   ngOnInit() {
   }
 login(loginInfo:any){
+
     console.log('一秒后登录。。。')
     console.log(loginInfo);
-    this.loginService.Logined()
+    this.loginService.Logined();
+    setTimeout( () => {
+      this.router.navigate(['sub',1]);
+    },1000)
+
 }
 }

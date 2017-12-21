@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import {NamedComponent} from "./named/named.component";
 import {CanActivateGuard} from "./can-activate.guard";
+import {CanloadGuard} from "./auth/canload.guard";
 
 const routes: Routes = [
   {
     path: 'sub',
     loadChildren: 'app/subModule/sub-module/sub-module.module#SubModuleModule',
-    canActivate:[CanActivateGuard]
+    // canActivate:[CanActivateGuard],
+    canLoad:[CanloadGuard]
   },
   {
     path: 'a',
@@ -21,7 +23,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,
+    { enableTracing: true ,
+      // preloadingStrategy: PreloadAllModules
+    } )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

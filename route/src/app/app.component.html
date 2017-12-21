@@ -20,7 +20,8 @@
 <!--</ul>-->
 <a [routerLink]="[{ outlets: { named: ['a'] } }]">辅助路由</a>
 <a [routerLink]="[{ outlets: { named: null } }]">取消辅助路由</a>
-<a routerLink="/sub">懒加载子路由</a>
+<a routerLink="/sub/1">懒加载子路由1</a>
+<a [routerLink]="['sub','2']">懒加载子路由2</a>
 <div><router-outlet></router-outlet></div>
 
 <router-outlet name="named"></router-outlet>
