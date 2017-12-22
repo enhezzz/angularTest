@@ -3,13 +3,14 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import {NamedComponent} from "./named/named.component";
 import {CanActivateGuard} from "./can-activate.guard";
 import {CanloadGuard} from "./auth/canload.guard";
+import {preLoad} from "./preload/preLoad";
 
 const routes: Routes = [
   {
     path: 'sub',
     loadChildren: 'app/subModule/sub-module/sub-module.module#SubModuleModule',
-    // canActivate:[CanActivateGuard],
-    canLoad:[CanloadGuard]
+    canActivate:[CanActivateGuard],
+    // canLoad:[CanloadGuard]
   },
   {
     path: 'a',
@@ -18,14 +19,15 @@ const routes: Routes = [
   },
   {
     path:'login',
-    loadChildren: 'app/login/login.module#LoginModule'
+    loadChildren: 'app/login/login.module#LoginModule',
+    data:{preload: true}
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes,
     { enableTracing: true ,
-      // preloadingStrategy: PreloadAllModules
+      preloadingStrategy: preLoad//PreloadAllModules
     } )],
   exports: [RouterModule]
 })

@@ -9,6 +9,7 @@ import { NamedComponent } from './named/named.component';
 import {CanActivateGuard} from "./can-activate.guard";
 import {LoginServiceService} from "./login-service.service";
 import {CanloadGuard} from "./auth/canload.guard";
+import {preLoad} from "./preload/preLoad";
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import {CanloadGuard} from "./auth/canload.guard";
 
     AppRoutingModule
   ],
-  providers: [CanActivateGuard,LoginServiceService,CanloadGuard],
+  providers: [CanActivateGuard,LoginServiceService,CanloadGuard,preLoad],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
