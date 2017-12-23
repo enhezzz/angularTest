@@ -18,10 +18,12 @@
     <!--<h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>-->
   <!--</li>-->
 <!--</ul>-->
-<a [routerLink]="[{ outlets: { named: ['a'] } }]">辅助路由</a>
-<a [routerLink]="[{ outlets: { named: null } }]">取消辅助路由</a>
+<a [routerLink]="[{ outlets: { named1: ['a'] } }]">辅助路由1</a>
+<a [routerLink]="[{ outlets: { named1: null } }]">取消辅助路由1</a>
+<button (click)="toNameRoute()">辅助路由2</button>
 <a routerLink="/sub/1">懒加载子路由1</a>
 <a [routerLink]="['sub','2']">懒加载子路由2</a>
 <div><router-outlet></router-outlet></div>
 
-<router-outlet name="named"></router-outlet>
+<router-outlet name="named1"></router-outlet>
+<router-outlet name="named2"></router-outlet>

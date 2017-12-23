@@ -15,7 +15,11 @@ const routes: Routes = [
   {
     path: 'a',
     component: NamedComponent,
-    outlet:'named'
+    outlet:'named1'
+  }, {
+    path: 'b',
+    component: NamedComponent,
+    outlet:'named2'
   },
   {
     path:'login',
