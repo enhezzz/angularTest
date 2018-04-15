@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'Rxjs';
-
+import { map, catchError } from 'Rxjs/operators';
+import { of } from 'Rxjs/observable/of';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,30 @@ import { Observable, Subject } from 'Rxjs';
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
-    const myObservable = Observable.of(1, 2, 3);
-    // Create observer object
-    const myObserver = {
-      next: x => console.log('Observer got a next value: ' + x),
-      error: err => console.error('Observer got an error: ' + err),
-      complete: () => console.log('Observer got a complete notification'),
-    };
-    // Execute with the observer object
-    myObservable.subscribe(myObserver);
-  }
+    // function fromEvent(target, eventName) {
+    //   return new Observable((observer) => {
+    //     const handler = (e) => observer.next(e);
 
+    //     // Add the event handler to the target
+    //     target.addEventListener(eventName, handler);
+
+    //     return () => {
+    //       // Detach the event handler from the target
+    //       target.removeEventListener(eventName, handler);
+    //     };
+    //   });
+    // }
+    // const nameInput = document.getElementById('name') as HTMLInputElement;
+
+    // const subscription = fromEvent(nameInput, 'keydown')
+    //   .subscribe((e: KeyboardEvent) => {
+    //     console.log(e.key);
+    //     // nameInput.value = '';
+
+    //   });
+
+
+
+
+  }
 }
